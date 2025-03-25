@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CEP - validador</title>
+    <link rel="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Valida Regra Especifica</h1>
+        <div class="json">
+            <h2>Informe a Regra e grupo de parametros no formato json </h2>
+            <form action="/valida" method="post">
+                <textarea rows="0" placeholder="json" name="json" id="json" cols="100" maxlength="1500">
+                    insira seu json {"funcao":"contrato","esteira":"Jornada"}
+                </textarea>
+                <button type="submit">Validar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
