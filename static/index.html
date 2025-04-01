@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMC via Python</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <input id="inp_peso" placeholder="Peso (kg)" type="number" step="0.1">
+        <input id="inp_altura" placeholder="Altura (m)" type="number" step="0.01">
+        <button type="button" id="btn_submit">Calcular IMC</button>
+    </form>
+    <h1 id="resultado"></h1>
+
+    <script>
+        $(document).ready(function() {
+            $("#btn_submit").click(function() {
+                const peso = parseFloat($("#inp_peso").val());
+                const altura = parseFloat($("#inp_altura").val());
+
+                if (isNaN(peso) || isNaN(altura)) {
+                    alert("Digite valores válidos!");
+                    return;
+                }
+
+                $.ajax({
+                    url: "http://localhost:8000/api",  
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ peso, altura }),
+                })
+                .done(function(data) {
+                    $("#resultado").text("IMC: " + data.resultado);
+                })
+                .fail(function(jqXHR, textStatus, error) {
+                    console.error("Erro:", textStatus, error);
+                    alert("Erro ao calcular IMC. Veja o console.");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
