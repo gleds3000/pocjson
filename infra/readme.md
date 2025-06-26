@@ -1,4 +1,4 @@
-#Considerações Importantes
+# Considerações Importantes
 Para que sua aplicação funcione corretamente com Graviton2, você precisa garantir que:
 
 Imagem Docker Multi-Arquitetura (ou ARM64 Específica): Sua imagem Docker (gerada pelo Dockerfile) precisa ser compatível com a arquitetura ARM64.
